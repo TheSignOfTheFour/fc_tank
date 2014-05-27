@@ -41,7 +41,8 @@ class OnlineGamesScene extends Scene
     $(document).unbind "keydown"
 
   toggle_game: () ->
-    curr_position = (@game.get_config('curr_menu_game') + 1) % @game.get_config('online_games').length
+    curr_position = (@game.get_config('curr_menu_game') + 1) %
+      @game.get_config('online_games').length
     @game.set_config('curr_menu_game', curr_position )
     @update_game_list()
 

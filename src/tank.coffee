@@ -137,7 +137,7 @@ class Map2D
   out_of_bound: (area) ->
     area.x1 < 0 or area.x2 > @max_x or area.y1 < 0 or area.y2 > @max_y
   area_available: (unit, area) ->
-    _.all(@map_units, (map_unit) =>
+    _.all(@map_units, (map_unit) ->
       (map_unit is unit) or
         map_unit.accept(unit) or
         not map_unit.area.collide(area)

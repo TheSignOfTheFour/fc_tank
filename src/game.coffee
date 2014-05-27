@@ -55,6 +55,17 @@ class Game
     target_scene.start()
     @current_scene = target_scene
 
+class Scene
+  constructor: (@game) ->
+    @layer = new Kinetic.Layer()
+    @game.canvas.add(@layer)
+    @layer.hide()
+
+  start: () ->
+    @layer.show()
+    @layer.draw()
+  stop: () -> @layer.hide()
+
 class WelcomeScene extends Scene
   constructor: (@game) ->
     super(@game)
@@ -67,13 +78,14 @@ class WelcomeScene extends Scene
 
   start: () ->
     super()
-    @static_group.move(-300, 0)
+    @static_group.move(y: -300, x: 0)
     new Kinetic.Tween({
       node: @static_group,
       duration: 1.5,
-      x: 0,
+#      x: 0,
+      rotationDeg: 0,
       easing: Kinetic.Easings.Linear,
-      onFinish: () =>
+      finish: () =>
         @update_players()
         @enable_selection_control()
     }).play()
@@ -660,7 +672,7 @@ class GameScene extends Scene
     @map = new Map2D(@layer)
     $.ajax {
       url: "data/terrains.json",
-      success: (json) => @builder = new TiledMapBuilder(@map, json),
+      success: (json) => @builder = new TiledMapBuilder(@map, json)
       dataType: 'json',
       async: false
     }
