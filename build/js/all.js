@@ -1434,9 +1434,10 @@ WelcomeScene = (function(_super) {
     new Kinetic.Tween({
       node: this.static_group,
       duration: 1.5,
+      y: 0,
       rotationDeg: 0,
       easing: Kinetic.Easings.Linear,
-      finish: (function(_this) {
+      onFinish: (function(_this) {
         return function() {
           _this.update_players();
           return _this.enable_selection_control();
@@ -1504,7 +1505,11 @@ WelcomeScene = (function(_super) {
   WelcomeScene.prototype.update_players = function() {
     var players;
     players = this.game.get_config('players');
-    return this.select_tank.setAbsolutePosition(170, 310 + players * 40);
+    this.select_tank.setAbsolutePosition({
+      x: 170,
+      y: 310 + players * 40
+    });
+    return this.layer.draw();
   };
 
   WelcomeScene.prototype.init_statics = function() {
@@ -1521,37 +1526,32 @@ WelcomeScene = (function(_super) {
   };
 
   WelcomeScene.prototype.init_logo = function() {
-    var animation, animations, area, brick_sprite, image, _i, _j, _len, _len1, _ref, _results;
+    var animations, area, brick_sprite, image, _i, _len, _ref, _results;
     image = document.getElementById('tank_sprite');
     _ref = [new MapArea2D(80, 100, 120, 110), new MapArea2D(120, 100, 140, 110), new MapArea2D(100, 110, 120, 140), new MapArea2D(100, 140, 120, 170), new MapArea2D(170, 100, 200, 110), new MapArea2D(160, 110, 180, 120), new MapArea2D(190, 110, 210, 120), new MapArea2D(150, 120, 170, 140), new MapArea2D(150, 140, 170, 170), new MapArea2D(200, 120, 220, 140), new MapArea2D(200, 140, 220, 170), new MapArea2D(170, 140, 200, 150), new MapArea2D(230, 100, 250, 140), new MapArea2D(230, 140, 250, 170), new MapArea2D(250, 110, 260, 140), new MapArea2D(260, 120, 270, 150), new MapArea2D(270, 130, 280, 160), new MapArea2D(280, 100, 300, 140), new MapArea2D(280, 140, 300, 170), new MapArea2D(310, 100, 330, 140), new MapArea2D(310, 140, 330, 170), new MapArea2D(360, 100, 380, 110), new MapArea2D(350, 110, 370, 120), new MapArea2D(340, 120, 360, 130), new MapArea2D(330, 130, 350, 140), new MapArea2D(330, 140, 360, 150), new MapArea2D(340, 150, 370, 160), new MapArea2D(350, 160, 380, 170), new MapArea2D(440, 100, 490, 110), new MapArea2D(430, 110, 450, 120), new MapArea2D(480, 110, 500, 120), new MapArea2D(420, 120, 440, 130), new MapArea2D(420, 130, 440, 140), new MapArea2D(420, 140, 440, 150), new MapArea2D(430, 150, 450, 160), new MapArea2D(480, 150, 500, 160), new MapArea2D(440, 160, 490, 170), new MapArea2D(180, 210, 200, 220), new MapArea2D(170, 220, 200, 230), new MapArea2D(180, 230, 200, 250), new MapArea2D(180, 250, 200, 270), new MapArea2D(160, 270, 200, 280), new MapArea2D(200, 270, 220, 280), new MapArea2D(240, 210, 260, 220), new MapArea2D(260, 210, 290, 220), new MapArea2D(230, 220, 250, 240), new MapArea2D(280, 220, 300, 240), new MapArea2D(240, 240, 260, 250), new MapArea2D(260, 240, 300, 250), new MapArea2D(280, 250, 300, 260), new MapArea2D(270, 260, 290, 270), new MapArea2D(240, 270, 280, 280), new MapArea2D(320, 210, 340, 220), new MapArea2D(340, 210, 370, 220), new MapArea2D(310, 220, 330, 240), new MapArea2D(360, 220, 380, 240), new MapArea2D(320, 240, 340, 250), new MapArea2D(340, 240, 380, 250), new MapArea2D(360, 250, 380, 260), new MapArea2D(350, 260, 370, 270), new MapArea2D(320, 270, 360, 280), new MapArea2D(410, 210, 440, 220), new MapArea2D(400, 220, 410, 230), new MapArea2D(430, 220, 450, 230), new MapArea2D(390, 230, 410, 260), new MapArea2D(440, 230, 460, 260), new MapArea2D(400, 260, 420, 270), new MapArea2D(440, 260, 450, 270), new MapArea2D(410, 270, 440, 280)];
     _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       area = _ref[_i];
-      animations = _.cloneDeep(Animations.terrain('brick'));
-      for (_j = 0, _len1 = animations.length; _j < _len1; _j++) {
-        animation = animations[_j];
-        animation.x += area.x1 % 40;
-        animation.y += area.y1 % 40;
-        animation.width = area.width();
-        animation.height = area.height();
-      }
+      animations = Animations.terrain('brick');
       brick_sprite = new Kinetic.Sprite({
         x: area.x1,
         y: area.y1,
         image: image,
-        index: 0,
-        animation: 'static',
+        animation: 'standing',
         animations: {
-          "static": animations
-        }
+          standing: [animations[0].x, animations[0].y, area.width(), area.height()]
+        },
+        frameRate: 0,
+        frameIndex: 0
       });
+      animations = null;
       _results.push(this.static_group.add(brick_sprite));
     }
     return _results;
   };
 
   WelcomeScene.prototype.init_user_selection = function() {
-    var image;
+    var image, tank_mov;
     this.static_group.add(new Kinetic.Text({
       x: 210,
       y: 340,
@@ -1589,20 +1589,24 @@ WelcomeScene = (function(_super) {
       fill: "#fff"
     }));
     image = document.getElementById('tank_sprite');
+    tank_mov = Animations.movables['user_p1_lv1'][0];
     this.select_tank = new Kinetic.Sprite({
       x: 170,
       y: 350,
       image: image,
       animation: 'user_p1_lv1',
-      animations: Animations.movables,
+      animations: {
+        'user_p1_lv1': [tank_mov.x, tank_mov.y, tank_mov.width, tank_mov.height]
+      },
       frameRate: Animations.rate('user_p1_lv1'),
-      index: 0,
       offset: {
         x: 20,
         y: 20
       },
-      rotationDeg: 90
+      rotationDeg: 90,
+      frameIndex: 0
     });
+    tank_mov = null;
     this.static_group.add(this.select_tank);
     return this.select_tank.start();
   };

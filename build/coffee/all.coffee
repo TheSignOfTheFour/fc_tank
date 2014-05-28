@@ -644,10 +644,10 @@ class WelcomeScene extends Scene
     new Kinetic.Tween({
       node: @static_group,
       duration: 1.5,
-#      x: 0,
+      y: 0,
       rotationDeg: 0,
       easing: Kinetic.Easings.Linear,
-      finish: () =>
+      onFinish: () =>
         @update_players()
         @enable_selection_control()
     }).play()
@@ -703,7 +703,8 @@ class WelcomeScene extends Scene
 
   update_players: () ->
     players = @game.get_config('players')
-    @select_tank.setAbsolutePosition(170, 310 + players * 40)
+    @select_tank.setAbsolutePosition x: 170, y: (310 + players * 40)
+    @layer.draw()
 
   init_statics: () ->
     # scores
@@ -804,20 +805,24 @@ class WelcomeScene extends Scene
       new MapArea2D(440, 260, 450, 270),
       new MapArea2D(410, 270, 440, 280)
     ]
-      animations = _.cloneDeep(Animations.terrain('brick'))
-      for animation in animations
-        animation.x += (area.x1 % 40)
-        animation.y += (area.y1 % 40)
-        animation.width = area.width()
-        animation.height = area.height()
+      animations = Animations.terrain('brick')
       brick_sprite = new Kinetic.Sprite({
         x: area.x1,
         y: area.y1,
         image: image,
-        index: 0,
-        animation: 'static',
-        animations: {static: animations}
+        animation: 'standing',
+        animations: {
+          standing: [
+            animations[0].x,
+            animations[0].y,
+            area.width(),
+            area.height()
+          ]
+        },
+        frameRate: 0,
+        frameIndex: 0
       })
+      animations = null
       @static_group.add(brick_sprite)
 
   init_user_selection: () ->
@@ -861,17 +866,23 @@ class WelcomeScene extends Scene
     }))
     # tank
     image = document.getElementById('tank_sprite')
+    tank_mov = Animations.movables['user_p1_lv1'][0]
     @select_tank = new Kinetic.Sprite({
       x: 170,
       y: 350,
       image: image,
       animation: 'user_p1_lv1',
-      animations: Animations.movables,
+      animations: {
+        'user_p1_lv1' : [
+          tank_mov.x, tank_mov.y, tank_mov.width, tank_mov.height
+        ]
+      },
       frameRate: Animations.rate('user_p1_lv1'),
-      index: 0,
       offset: {x: 20, y: 20},
-      rotationDeg: 90
+      rotationDeg: 90,
+      frameIndex: 0
     })
+    tank_mov = null
     @static_group.add(@select_tank)
     @select_tank.start()
 
