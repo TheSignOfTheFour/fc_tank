@@ -243,7 +243,7 @@ class WelcomeScene extends Scene
       new MapArea2D(440, 260, 450, 270),
       new MapArea2D(410, 270, 440, 280)
     ]
-      animations = Animations.terrain('brick')
+      animations = Animations.terrain_new('brick')
       brick_sprite = new Kinetic.Sprite({
         x: area.x1,
         y: area.y1,
@@ -251,8 +251,8 @@ class WelcomeScene extends Scene
         animation: 'standing',
         animations: {
           standing: [
-            animations[0].x,
-            animations[0].y,
+            animations[0],
+            animations[1],
             area.width(),
             area.height()
           ]
@@ -304,16 +304,14 @@ class WelcomeScene extends Scene
     }))
     # tank
     image = document.getElementById('tank_sprite')
-    tank_mov = Animations.movables['user_p1_lv1'][0]
+    tank_mov = Animations.movable_new('user_p1_lv1')
     @select_tank = new Kinetic.Sprite({
       x: 170,
       y: 350,
       image: image,
       animation: 'user_p1_lv1',
       animations: {
-        'user_p1_lv1' : [
-          tank_mov.x, tank_mov.y, tank_mov.width, tank_mov.height
-        ]
+        'user_p1_lv1' : tank_mov
       },
       frameRate: Animations.rate('user_p1_lv1'),
       offset: {x: 20, y: 20},
@@ -496,9 +494,9 @@ class ReportScene extends Scene
       y: 220,
       image: image,
       animation: 'stupid_hp1',
-      animations: Animations.movables,
+      animations: Animations.movables_new,
       frameRate: Animations.rate('stupid_hp1'),
-      index: 0,
+      frameIndex: 0,
       offset: {x: 20, y: 20},
       rotationDeg: 0
     })
@@ -734,7 +732,7 @@ class GameScene extends Scene
     @running = true
     @p1_user_initialized = false
     @p2_user_initialized = false
-    @current_bgm().play()
+#    @current_bgm().play()
 
   stop: () ->
     super()
@@ -835,7 +833,7 @@ class GameScene extends Scene
     , parseInt(1000/@fps))
     # show frame rate
     @frame_timeline = setInterval(() =>
-      @frame_rate_label.setText(@frame_rate + " fps")
+      @frame_rate_label.text(@frame_rate + " fps")
       @frame_rate = 0
     , 1000)
 
@@ -948,11 +946,11 @@ class GameScene extends Scene
   new_symbol: (parent, type, tx, ty) ->
     animations = switch type
       when 'enemy'
-        [{x: 320, y: 340, width: 20, height: 20}]
+        [320, 340, 20, 20]
       when 'user'
-        [{x: 340, y: 340, width: 20, height: 20}]
+        [340, 340, 20, 20]
       when 'stage'
-        [{x: 280, y: 340, width: 40, height: 40}]
+        [280, 340, 40, 40]
     symbol = new Kinetic.Sprite({
       x: tx,
       y: ty,
@@ -962,7 +960,7 @@ class GameScene extends Scene
         'static': animations
       },
       frameRate: 1,
-      index: 0
+      frameIndex: 0
     })
     parent.add(symbol)
     symbol.start()

@@ -267,17 +267,24 @@ class MapUnit2D
 
   destroy_display: () ->
     if @bom_on_destroy
-      @display_object.setOffset(20, 20)
-      @display_object.setAnimations(Animations.movables)
-      @display_object.setAnimation('bom')
-      @display_object.setFrameRate(Animations.rate('bom'))
+      @display_object.offset(20, 20)
+      @display_object.animations(Animations.movables_new)
+      @display_object.animation('bom')
+      @display_object.frameRate(Animations.rate('bom'))
+      @display_object.listening = true
       @display_object.start()
-      @display_object.afterFrame 3, () =>
-        @display_object.stop()
-        @display_object.destroy()
+      t = Animations.movable_new('bom').length/4 - 1
+      @display_object.on 'frameIndexChange', (evt) ->
+        if evt.newVal == t
+          @.stop()
+          @.destroy()
     else
       @display_object.stop()
       @display_object.destroy()
+
+  test_interval: (elem) ->
+    console.log(2222)
+    console.log(elem.frameIndex())
 
   width: () -> @area.x2 - @area.x1
   height: () -> @area.y2 - @area.y1
@@ -316,21 +323,23 @@ class MovableMapUnit2D extends MapUnit2D
       y: center.y,
       image: @map.image,
       animation: @animation_state(),
-      animations: Animations.movables,
+      animations: Animations.movables_new,
       frameRate: Animations.rate(@animation_state()),
-      index: 0,
+      frameIndex: 0,
       offset: {x: @area.width()/2, y: @area.height()/2},
-      rotationDeg: @direction,
+      rotation: @direction,
       map_unit: this
     })
 
   update_display: () ->
     return if @destroyed
-    @display_object.setAnimation(@animation_state())
-    @display_object.setFrameRate(Animations.rate(@animation_state()))
-    @display_object.setRotationDeg(@direction)
+    @display_object.animation(@animation_state())
+    @display_object.frameRate(Animations.rate(@animation_state()))
+    @display_object.rotation(@direction)
     center = @area.center()
-    @display_object.setAbsolutePosition(center.x, center.y)
+    @display_object.setAbsolutePosition({x: center.x, y: center.y})
+#    @display_object.draw()
+    game.current_scene.layer.draw()
 
   queued_delayed_commands: () ->
     [commands, @delayed_commands] = [@delayed_commands, []]
@@ -425,21 +434,25 @@ class MovableMapUnit2D extends MapUnit2D
 class Terrain extends MapUnit2D
   accept: (map_unit) -> false
   new_display: () ->
-    animations = _.cloneDeep(Animations.terrain(@type()))
-    for animation in animations
-      animation.x += (@area.x1 % 40)
-      animation.y += (@area.y1 % 40)
-      animation.width = @area.width()
-      animation.height = @area.height()
+    animations = Animations.terrain_new(@type())
     @display_object = new Kinetic.Sprite({
       x: @area.x1,
       y: @area.y1,
       image: @map.image,
-      index: 0,
+      frameRate: 0,
+      frameIndex: 0,
       animation: 'static',
-      animations: {static: animations},
+      animations: {
+        static: [
+          animations[0],
+          animations[1],
+          @area.width(),
+          @area.height()
+        ]
+      },
       map_unit: this
     })
+    animations = null
 
 class BrickTerrain extends Terrain
   type: -> "brick"
@@ -513,10 +526,11 @@ class HomeTerrain extends Terrain
       x: @area.x1,
       y: @area.y1,
       image: @map.image,
-      index: 0,
+      frameRate: 0,
+      frameIndex: 0,
       animations: {
-        origin: Animations.terrain('home_origin'),
-        destroyed: Animations.terrain('home_destroyed')
+        origin: Animations.terrain_new('home_origin'),
+        destroyed: Animations.terrain_new('home_destroyed')
       },
       animation: 'origin',
       map_unit: this
@@ -524,7 +538,7 @@ class HomeTerrain extends Terrain
   defend: (missile, destroy_area) ->
     return @max_defend_point if @destroyed
     @destroyed = true
-    @display_object.setAnimation('destroyed')
+    @display_object.animation('destroyed')
     @map.trigger('home_destroyed')
     @max_defend_point
 
@@ -635,9 +649,14 @@ class Tank extends MovableMapUnit2D
 
   after_new_display: () ->
     super()
-    @display_object.afterFrame 4, () =>
-      @initializing = false
-      @update_display()
+#    @display_object.afterFrame 4, () =>
+    self = @
+    animation_count = Animations.movable_new(@display_object.animation()).
+    length/4 - 1
+    @display_object.on 'frameIndexChange', (evt) ->
+      if evt.newVal == animation_count
+        self.initializing = false
+        self.update_display()
 
   destroy: () ->
     super()
@@ -860,9 +879,9 @@ class Gift extends MapUnit2D
       y: @area.y1,
       image: @map.image,
       animation: @animation_state(),
-      animations: Animations.gifts,
+      animations: Animations.gifts_new,
       frameRate: Animations.rate(@animation_state()),
-      index: 0,
+      frameIndex: 0,
       map_unit: this
     })
 

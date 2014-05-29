@@ -1020,8 +1020,91 @@ Animations = (function() {
     ]
   };
 
+  Animations.movables_new = {
+    bom: [360, 340, 40, 40, 120, 340, 40, 40, 160, 340, 40, 40, 200, 340, 40, 40],
+    tank_born: [360, 340, 40, 40, 0, 340, 40, 40, 40, 340, 40, 40, 0, 340, 40, 40, 80, 340, 40, 40],
+    user_p1_lv1: [0, 0, 40, 40],
+    user_p1_lv1_frozen: [0, 0, 40, 40, 0, 0, 40, 40, 360, 320, 40, 40],
+    user_p1_lv1_with_ship: [40, 0, 40, 40],
+    user_p1_lv1_with_guard: [0, 0, 40, 40, 80, 0, 40, 40],
+    user_p1_lv2: [120, 0, 40, 40],
+    user_p1_lv2_frozen: [120, 0, 40, 40, 120, 0, 40, 40, 360, 320, 40, 40],
+    user_p1_lv2_with_ship: [160, 0, 40, 40],
+    user_p1_lv2_with_guard: [120, 0, 40, 40, 200, 0, 40, 40],
+    user_p1_lv3: [240, 0, 40, 40],
+    user_p1_lv3_frozen: [240, 0, 40, 40, 240, 0, 40, 40, 360, 320, 40, 40],
+    user_p1_lv3_with_ship: [280, 0, 40, 40],
+    user_p1_lv3_with_guard: [240, 0, 40, 40, 320, 0, 40, 40],
+    user_p2_lv1: [0, 40, 40, 40],
+    user_p2_lv1_frozen: [0, 40, 40, 40, 0, 40, 40, 40, 360, 320, 40, 40],
+    user_p2_lv1_with_ship: [40, 40, 40, 40],
+    user_p2_lv1_with_guard: [0, 40, 40, 40, 80, 40, 40, 40],
+    user_p2_lv2: [120, 40, 40, 40],
+    user_p2_lv2_frozen: [120, 40, 40, 40, 120, 40, 40, 40, 360, 320, 40, 40],
+    user_p2_lv2_with_ship: [160, 40, 40, 40],
+    user_p2_lv2_with_guard: [120, 40, 40, 40, 200, 40, 40, 40],
+    user_p2_lv3: [240, 40, 40, 40],
+    user_p2_lv3_frozen: [240, 40, 40, 40, 240, 40, 40, 40, 360, 320, 40, 40],
+    user_p2_lv3_with_ship: [280, 40, 40, 40],
+    user_p2_lv3_with_guard: [240, 40, 40, 40, 320, 40, 40, 40],
+    enemy_lv3: [360, 0, 40, 40],
+    enemy_lv3_with_ship: [360, 40, 40, 40],
+    stupid_hp1: [0, 80, 40, 40],
+    stupid_hp1_with_ship: [40, 80, 40, 40],
+    stupid_hp2: [80, 80, 40, 40],
+    stupid_hp2_with_ship: [120, 80, 40, 40],
+    stupid_hp3: [160, 80, 40, 40],
+    stupid_hp3_with_ship: [200, 80, 40, 40],
+    stupid_hp4: [240, 80, 40, 40],
+    stupid_hp4_with_ship: [280, 80, 40, 40],
+    stupid_with_gift: [320, 80, 40, 40, 320, 80, 40, 40, 0, 80, 40, 40],
+    stupid_with_gift_with_ship: [360, 80, 40, 40, 40, 80, 40, 40],
+    fool_hp1: [0, 120, 40, 40],
+    fool_hp1_with_ship: [40, 120, 40, 40],
+    fool_hp2: [80, 120, 40, 40],
+    fool_hp2_with_ship: [120, 120, 40, 40],
+    fool_hp3: [160, 120, 40, 40],
+    fool_hp3_with_ship: [200, 120, 40, 40],
+    fool_hp4: [240, 120, 40, 40],
+    fool_hp4_with_ship: [280, 120, 40, 40],
+    fool_with_gift: [320, 120, 40, 40, 320, 120, 40, 40, 0, 120, 40, 40],
+    fool_with_gift_with_ship: [360, 120, 40, 40, 40, 120, 40, 40],
+    fish_hp1: [0, 160, 40, 40],
+    fish_hp1_with_ship: [40, 160, 40, 40],
+    fish_hp2: [80, 160, 40, 40],
+    fish_hp2_with_ship: [120, 160, 40, 40],
+    fish_hp3: [160, 160, 40, 40],
+    fish_hp3_with_ship: [200, 160, 40, 40],
+    fish_hp4: [240, 160, 40, 40],
+    fish_hp4_with_ship: [280, 160, 40, 40],
+    fish_with_gift: [320, 160, 40, 40, 320, 160, 40, 40, 0, 160, 40, 40],
+    fish_with_gift_with_ship: [360, 160, 40, 40, 40, 160, 40, 40],
+    strong_hp1: [0, 200, 40, 40],
+    strong_hp1_with_ship: [40, 200, 40, 40],
+    strong_hp2: [80, 200, 40, 40],
+    strong_hp2_with_ship: [120, 200, 40, 40],
+    strong_hp3: [160, 200, 40, 40],
+    strong_hp3_with_ship: [200, 200, 40, 40],
+    strong_hp4: [240, 200, 40, 40],
+    strong_hp4_with_ship: [280, 200, 40, 40],
+    strong_with_gift: [320, 200, 40, 40, 320, 200, 40, 40, 0, 200, 40, 40],
+    strong_with_gift_with_ship: [360, 200, 40, 40, 40, 200, 40, 40],
+    missile: [
+      {
+        x: 250,
+        y: 350,
+        width: 20,
+        height: 20
+      }
+    ]
+  };
+
   Animations.movable = function(type) {
     return this.movables[type];
+  };
+
+  Animations.movable_new = function(type) {
+    return this.movables_new[type];
   };
 
   Animations.gifts = {
@@ -1129,6 +1212,17 @@ Animations = (function() {
         height: 40
       }
     ]
+  };
+
+  Animations.gifts_new = {
+    land_mine: [0, 300, 40, 40, 360, 300, 40, 40],
+    gun: [80, 300, 40, 40, 360, 300, 40, 40],
+    ship: [40, 300, 40, 40, 360, 300, 40, 40],
+    star: [160, 300, 40, 40, 360, 300, 40, 40],
+    shovel: [120, 300, 40, 40, 360, 300, 40, 40],
+    life: [240, 300, 40, 40, 360, 300, 40, 40],
+    hat: [200, 300, 40, 40, 360, 300, 40, 40],
+    clock: [280, 300, 40, 40, 360, 300, 40, 40]
   };
 
   Animations.rates = {
@@ -1280,8 +1374,22 @@ Animations = (function() {
     ]
   };
 
+  Animations.terrains_new = {
+    brick: [0, 240, 40, 40],
+    iron: [120, 240, 40, 40],
+    water: [240, 240, 40, 40],
+    ice: [60, 240, 40, 40],
+    grass: [180, 240, 40, 40],
+    home_origin: [320, 240, 40, 40],
+    home_destroyed: [360, 240, 40, 40]
+  };
+
   Animations.terrain = function(type) {
     return this.terrains[type];
+  };
+
+  Animations.terrain_new = function(type) {
+    return this.terrains_new[type];
   };
 
   return Animations;
@@ -1532,14 +1640,14 @@ WelcomeScene = (function(_super) {
     _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       area = _ref[_i];
-      animations = Animations.terrain('brick');
+      animations = Animations.terrain_new('brick');
       brick_sprite = new Kinetic.Sprite({
         x: area.x1,
         y: area.y1,
         image: image,
         animation: 'standing',
         animations: {
-          standing: [animations[0].x, animations[0].y, area.width(), area.height()]
+          standing: [animations[0], animations[1], area.width(), area.height()]
         },
         frameRate: 0,
         frameIndex: 0
@@ -1589,14 +1697,14 @@ WelcomeScene = (function(_super) {
       fill: "#fff"
     }));
     image = document.getElementById('tank_sprite');
-    tank_mov = Animations.movables['user_p1_lv1'][0];
+    tank_mov = Animations.movable_new('user_p1_lv1');
     this.select_tank = new Kinetic.Sprite({
       x: 170,
       y: 350,
       image: image,
       animation: 'user_p1_lv1',
       animations: {
-        'user_p1_lv1': [tank_mov.x, tank_mov.y, tank_mov.width, tank_mov.height]
+        'user_p1_lv1': tank_mov
       },
       frameRate: Animations.rate('user_p1_lv1'),
       offset: {
@@ -1829,9 +1937,9 @@ ReportScene = (function(_super) {
       y: 220,
       image: image,
       animation: 'stupid_hp1',
-      animations: Animations.movables,
+      animations: Animations.movables_new,
       frameRate: Animations.rate('stupid_hp1'),
-      index: 0,
+      frameIndex: 0,
       offset: {
         x: 20,
         y: 20
@@ -2170,8 +2278,7 @@ GameScene = (function(_super) {
     this.start_time_line();
     this.running = true;
     this.p1_user_initialized = false;
-    this.p2_user_initialized = false;
-    return this.current_bgm().play();
+    return this.p2_user_initialized = false;
   };
 
   GameScene.prototype.stop = function() {
@@ -2324,7 +2431,7 @@ GameScene = (function(_super) {
     })(this), parseInt(1000 / this.fps));
     return this.frame_timeline = setInterval((function(_this) {
       return function() {
-        _this.frame_rate_label.setText(_this.frame_rate + " fps");
+        _this.frame_rate_label.text(_this.frame_rate + " fps");
         return _this.frame_rate = 0;
       };
     })(this), 1000);
@@ -2440,32 +2547,11 @@ GameScene = (function(_super) {
     animations = (function() {
       switch (type) {
         case 'enemy':
-          return [
-            {
-              x: 320,
-              y: 340,
-              width: 20,
-              height: 20
-            }
-          ];
+          return [320, 340, 20, 20];
         case 'user':
-          return [
-            {
-              x: 340,
-              y: 340,
-              width: 20,
-              height: 20
-            }
-          ];
+          return [340, 340, 20, 20];
         case 'stage':
-          return [
-            {
-              x: 280,
-              y: 340,
-              width: 40,
-              height: 40
-            }
-          ];
+          return [280, 340, 40, 40];
       }
     })();
     symbol = new Kinetic.Sprite({
@@ -2477,7 +2563,7 @@ GameScene = (function(_super) {
         'static': animations
       },
       frameRate: 1,
-      index: 0
+      frameIndex: 0
     });
     parent.add(symbol);
     symbol.start();
@@ -3278,22 +3364,30 @@ MapUnit2D = (function() {
   };
 
   MapUnit2D.prototype.destroy_display = function() {
+    var t;
     if (this.bom_on_destroy) {
-      this.display_object.setOffset(20, 20);
-      this.display_object.setAnimations(Animations.movables);
-      this.display_object.setAnimation('bom');
-      this.display_object.setFrameRate(Animations.rate('bom'));
+      this.display_object.offset(20, 20);
+      this.display_object.animations(Animations.movables_new);
+      this.display_object.animation('bom');
+      this.display_object.frameRate(Animations.rate('bom'));
+      this.display_object.listening = true;
       this.display_object.start();
-      return this.display_object.afterFrame(3, (function(_this) {
-        return function() {
-          _this.display_object.stop();
-          return _this.display_object.destroy();
-        };
-      })(this));
+      t = Animations.movable_new('bom').length / 4 - 1;
+      return this.display_object.on('frameIndexChange', function(evt) {
+        if (evt.newVal === t) {
+          this.stop();
+          return this.destroy();
+        }
+      });
     } else {
       this.display_object.stop();
       return this.display_object.destroy();
     }
+  };
+
+  MapUnit2D.prototype.test_interval = function(elem) {
+    console.log(2222);
+    return console.log(elem.frameIndex());
   };
 
   MapUnit2D.prototype.width = function() {
@@ -3360,14 +3454,14 @@ MovableMapUnit2D = (function(_super) {
       y: center.y,
       image: this.map.image,
       animation: this.animation_state(),
-      animations: Animations.movables,
+      animations: Animations.movables_new,
       frameRate: Animations.rate(this.animation_state()),
-      index: 0,
+      frameIndex: 0,
       offset: {
         x: this.area.width() / 2,
         y: this.area.height() / 2
       },
-      rotationDeg: this.direction,
+      rotation: this.direction,
       map_unit: this
     });
   };
@@ -3377,11 +3471,15 @@ MovableMapUnit2D = (function(_super) {
     if (this.destroyed) {
       return;
     }
-    this.display_object.setAnimation(this.animation_state());
-    this.display_object.setFrameRate(Animations.rate(this.animation_state()));
-    this.display_object.setRotationDeg(this.direction);
+    this.display_object.animation(this.animation_state());
+    this.display_object.frameRate(Animations.rate(this.animation_state()));
+    this.display_object.rotation(this.direction);
     center = this.area.center();
-    return this.display_object.setAbsolutePosition(center.x, center.y);
+    this.display_object.setAbsolutePosition({
+      x: center.x,
+      y: center.y
+    });
+    return game.current_scene.layer.draw();
   };
 
   MovableMapUnit2D.prototype.queued_delayed_commands = function() {
@@ -3537,26 +3635,21 @@ Terrain = (function(_super) {
   };
 
   Terrain.prototype.new_display = function() {
-    var animation, animations, _i, _len;
-    animations = _.cloneDeep(Animations.terrain(this.type()));
-    for (_i = 0, _len = animations.length; _i < _len; _i++) {
-      animation = animations[_i];
-      animation.x += this.area.x1 % 40;
-      animation.y += this.area.y1 % 40;
-      animation.width = this.area.width();
-      animation.height = this.area.height();
-    }
-    return this.display_object = new Kinetic.Sprite({
+    var animations;
+    animations = Animations.terrain_new(this.type());
+    this.display_object = new Kinetic.Sprite({
       x: this.area.x1,
       y: this.area.y1,
       image: this.map.image,
-      index: 0,
+      frameRate: 0,
+      frameIndex: 0,
       animation: 'static',
       animations: {
-        "static": animations
+        "static": [animations[0], animations[1], this.area.width(), this.area.height()]
       },
       map_unit: this
     });
+    return animations = null;
   };
 
   return Terrain;
@@ -3747,10 +3840,11 @@ HomeTerrain = (function(_super) {
       x: this.area.x1,
       y: this.area.y1,
       image: this.map.image,
-      index: 0,
+      frameRate: 0,
+      frameIndex: 0,
       animations: {
-        origin: Animations.terrain('home_origin'),
-        destroyed: Animations.terrain('home_destroyed')
+        origin: Animations.terrain_new('home_origin'),
+        destroyed: Animations.terrain_new('home_destroyed')
       },
       animation: 'origin',
       map_unit: this
@@ -3762,7 +3856,7 @@ HomeTerrain = (function(_super) {
       return this.max_defend_point;
     }
     this.destroyed = true;
-    this.display_object.setAnimation('destroyed');
+    this.display_object.animation('destroyed');
     this.map.trigger('home_destroyed');
     return this.max_defend_point;
   };
@@ -3939,13 +4033,16 @@ Tank = (function(_super) {
   };
 
   Tank.prototype.after_new_display = function() {
+    var animation_count, self;
     Tank.__super__.after_new_display.call(this);
-    return this.display_object.afterFrame(4, (function(_this) {
-      return function() {
-        _this.initializing = false;
-        return _this.update_display();
-      };
-    })(this));
+    self = this;
+    animation_count = Animations.movable_new(this.display_object.animation()).length / 4 - 1;
+    return this.display_object.on('frameIndexChange', function(evt) {
+      if (evt.newVal === animation_count) {
+        self.initializing = false;
+        return self.update_display();
+      }
+    });
   };
 
   Tank.prototype.destroy = function() {
@@ -4358,9 +4455,9 @@ Gift = (function(_super) {
       y: this.area.y1,
       image: this.map.image,
       animation: this.animation_state(),
-      animations: Animations.gifts,
+      animations: Animations.gifts_new,
       frameRate: Animations.rate(this.animation_state()),
-      index: 0,
+      frameIndex: 0,
       map_unit: this
     });
   };

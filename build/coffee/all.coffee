@@ -414,7 +414,252 @@ class Animations
     ],
     missile: [{x: 250, y: 350, width: 20, height: 20}]
   }
+  @movables_new: {
+    bom: [
+      360, 340, 40, 40,
+      120, 340, 40, 40,
+      160, 340, 40, 40,
+      200, 340, 40, 40
+    ],
+    tank_born: [
+      360, 340, 40, 40,
+      0, 340, 40, 40,
+      40, 340, 40, 40,
+      0, 340, 40, 40,
+      80, 340, 40, 40
+    ],
+    user_p1_lv1: [
+      0, 0, 40, 40
+    ],
+    user_p1_lv1_frozen: [
+      0, 0, 40, 40,
+      0, 0, 40, 40,
+      360, 320, 40, 40
+    ],
+    user_p1_lv1_with_ship: [
+      40, 0, 40, 40
+    ],
+    user_p1_lv1_with_guard: [
+      0, 0, 40, 40,
+      80, 0, 40, 40
+    ],
+    user_p1_lv2: [
+      120, 0, 40, 40
+    ],
+    user_p1_lv2_frozen: [
+      120, 0, 40, 40,
+      120, 0, 40, 40,
+      360, 320, 40, 40
+    ],
+    user_p1_lv2_with_ship: [
+      160, 0, 40, 40
+    ],
+    user_p1_lv2_with_guard: [
+      120, 0, 40, 40,
+      200, 0, 40, 40
+    ],
+    user_p1_lv3: [
+      240, 0, 40, 40
+    ],
+    user_p1_lv3_frozen: [
+      240, 0, 40, 40,
+      240, 0, 40, 40,
+      360, 320, 40, 40
+    ],
+    user_p1_lv3_with_ship: [
+      280, 0, 40, 40
+    ],
+    user_p1_lv3_with_guard: [
+      240, 0, 40, 40,
+      320, 0, 40, 40
+    ],
+    user_p2_lv1: [
+      0, 40, 40, 40
+    ],
+    user_p2_lv1_frozen: [
+      0, 40, 40, 40,
+      0, 40, 40, 40,
+      360, 320, 40, 40
+    ],
+    user_p2_lv1_with_ship: [
+      40, 40, 40, 40
+    ],
+    user_p2_lv1_with_guard: [
+      0, 40, 40, 40,
+      80, 40, 40, 40
+    ],
+    user_p2_lv2: [
+      120, 40, 40, 40
+    ],
+    user_p2_lv2_frozen: [
+      120, 40, 40, 40,
+      120, 40, 40, 40,
+      360, 320, 40, 40
+    ],
+    user_p2_lv2_with_ship: [
+      160, 40, 40, 40
+    ],
+    user_p2_lv2_with_guard: [
+      120, 40, 40, 40,
+      200, 40, 40, 40
+    ],
+    user_p2_lv3: [
+      240, 40, 40, 40
+    ],
+    user_p2_lv3_frozen: [
+      240, 40, 40, 40,
+      240, 40, 40, 40,
+      360, 320, 40, 40
+    ],
+    user_p2_lv3_with_ship: [
+      280, 40, 40, 40
+    ],
+    user_p2_lv3_with_guard: [
+      240, 40, 40, 40,
+      320, 40, 40, 40
+    ],
+    enemy_lv3: [
+      360, 0, 40, 40
+    ],
+    enemy_lv3_with_ship: [
+      360, 40, 40, 40
+    ],
+    stupid_hp1: [
+      0, 80, 40, 40
+    ],
+    stupid_hp1_with_ship: [
+      40, 80, 40, 40
+    ],
+    stupid_hp2: [
+      80, 80, 40, 40
+    ],
+    stupid_hp2_with_ship: [
+      120, 80, 40, 40
+    ],
+    stupid_hp3: [
+      160, 80, 40, 40
+    ],
+    stupid_hp3_with_ship: [
+      200, 80, 40, 40
+    ],
+    stupid_hp4: [
+      240, 80, 40, 40
+    ],
+    stupid_hp4_with_ship: [
+      280, 80, 40, 40
+    ],
+    stupid_with_gift: [
+      320, 80, 40, 40,
+      320, 80, 40, 40,
+      0, 80, 40, 40
+    ],
+    stupid_with_gift_with_ship: [
+      360, 80, 40, 40,
+      40, 80, 40, 40
+    ],
+    fool_hp1: [
+      0, 120, 40, 40
+    ],
+    fool_hp1_with_ship: [
+      40, 120, 40, 40
+    ],
+    fool_hp2: [
+      80, 120, 40, 40
+    ],
+    fool_hp2_with_ship: [
+      120, 120, 40, 40
+    ],
+    fool_hp3: [
+      160, 120, 40, 40
+    ],
+    fool_hp3_with_ship: [
+      200, 120, 40, 40
+    ],
+    fool_hp4: [
+      240, 120, 40, 40
+    ],
+    fool_hp4_with_ship: [
+      280, 120, 40, 40
+    ],
+    fool_with_gift: [
+      320, 120, 40, 40,
+      320, 120, 40, 40,
+      0, 120, 40, 40
+    ],
+    fool_with_gift_with_ship: [
+      360, 120, 40, 40,
+      40, 120, 40, 40
+    ],
+    fish_hp1: [
+      0, 160, 40, 40
+    ],
+    fish_hp1_with_ship: [
+      40, 160, 40, 40
+    ],
+    fish_hp2: [
+      80, 160, 40, 40
+    ],
+    fish_hp2_with_ship: [
+      120, 160, 40, 40
+    ],
+    fish_hp3: [
+      160, 160, 40, 40
+    ],
+    fish_hp3_with_ship: [
+      200, 160, 40, 40
+    ],
+    fish_hp4: [
+      240, 160, 40, 40
+    ],
+    fish_hp4_with_ship: [
+      280, 160, 40, 40
+    ],
+    fish_with_gift: [
+      320, 160, 40, 40,
+      320, 160, 40, 40,
+      0, 160, 40, 40
+    ],
+    fish_with_gift_with_ship: [
+      360, 160, 40, 40,
+      40, 160, 40, 40
+    ],
+    strong_hp1: [
+      0, 200, 40, 40
+    ],
+    strong_hp1_with_ship: [
+      40, 200, 40, 40
+    ],
+    strong_hp2: [
+      80, 200, 40, 40
+    ],
+    strong_hp2_with_ship: [
+      120, 200, 40, 40
+    ],
+    strong_hp3: [
+      160, 200, 40, 40
+    ],
+    strong_hp3_with_ship: [
+      200, 200, 40, 40
+    ],
+    strong_hp4: [
+      240, 200, 40, 40
+    ],
+    strong_hp4_with_ship: [
+      280, 200, 40, 40
+    ],
+    strong_with_gift: [
+      320, 200, 40, 40,
+      320, 200, 40, 40,
+      0, 200, 40, 40
+    ],
+    strong_with_gift_with_ship: [
+      360, 200, 40, 40,
+      40, 200, 40, 40
+    ],
+    missile: [{x: 250, y: 350, width: 20, height: 20}]
+  }
   @movable: (type) -> @movables[type]
+  @movable_new: (type) -> @movables_new[type]
 
   @gifts: {
     land_mine: [
@@ -448,6 +693,40 @@ class Animations
     clock: [
       {x: 280, y: 300, width: 40, height: 40},
       {x: 360, y: 300, width: 40, height: 40}
+    ]
+  }
+  @gifts_new: {
+    land_mine: [
+      0, 300, 40, 40,
+      360, 300, 40, 40
+    ],
+    gun: [
+      80, 300, 40, 40,
+      360, 300, 40, 40
+    ],
+    ship: [
+      40, 300, 40, 40,
+      360, 300, 40, 40
+    ],
+    star: [
+      160, 300, 40, 40,
+      360, 300, 40, 40
+    ],
+    shovel: [
+      120, 300, 40, 40,
+      360, 300, 40, 40
+    ],
+    life: [
+      240, 300, 40, 40,
+      360, 300, 40, 40
+    ],
+    hat: [
+      200, 300, 40, 40,
+      360, 300, 40, 40
+    ],
+    clock: [
+      280, 300, 40, 40,
+      360, 300, 40, 40
     ]
   }
 
@@ -557,7 +836,17 @@ class Animations
     home_origin: [{x: 320, y: 240, width: 40, height: 40}],
     home_destroyed: [{x: 360, y: 240, width: 40, height: 40}]
   }
+  @terrains_new: {
+    brick: [0, 240, 40, 40],
+    iron: [120, 240, 40, 40],
+    water: [240, 240, 40, 40],
+    ice: [60, 240, 40, 40],
+    grass: [180, 240, 40, 40],
+    home_origin: [320, 240, 40, 40],
+    home_destroyed: [360, 240, 40, 40]
+  }
   @terrain: (type) -> @terrains[type]
+  @terrain_new: (type) -> @terrains_new[type]
 
 
 class Game
@@ -805,7 +1094,7 @@ class WelcomeScene extends Scene
       new MapArea2D(440, 260, 450, 270),
       new MapArea2D(410, 270, 440, 280)
     ]
-      animations = Animations.terrain('brick')
+      animations = Animations.terrain_new('brick')
       brick_sprite = new Kinetic.Sprite({
         x: area.x1,
         y: area.y1,
@@ -813,8 +1102,8 @@ class WelcomeScene extends Scene
         animation: 'standing',
         animations: {
           standing: [
-            animations[0].x,
-            animations[0].y,
+            animations[0],
+            animations[1],
             area.width(),
             area.height()
           ]
@@ -866,16 +1155,14 @@ class WelcomeScene extends Scene
     }))
     # tank
     image = document.getElementById('tank_sprite')
-    tank_mov = Animations.movables['user_p1_lv1'][0]
+    tank_mov = Animations.movable_new('user_p1_lv1')
     @select_tank = new Kinetic.Sprite({
       x: 170,
       y: 350,
       image: image,
       animation: 'user_p1_lv1',
       animations: {
-        'user_p1_lv1' : [
-          tank_mov.x, tank_mov.y, tank_mov.width, tank_mov.height
-        ]
+        'user_p1_lv1' : tank_mov
       },
       frameRate: Animations.rate('user_p1_lv1'),
       offset: {x: 20, y: 20},
@@ -1058,9 +1345,9 @@ class ReportScene extends Scene
       y: 220,
       image: image,
       animation: 'stupid_hp1',
-      animations: Animations.movables,
+      animations: Animations.movables_new,
       frameRate: Animations.rate('stupid_hp1'),
-      index: 0,
+      frameIndex: 0,
       offset: {x: 20, y: 20},
       rotationDeg: 0
     })
@@ -1296,7 +1583,7 @@ class GameScene extends Scene
     @running = true
     @p1_user_initialized = false
     @p2_user_initialized = false
-    @current_bgm().play()
+#    @current_bgm().play()
 
   stop: () ->
     super()
@@ -1397,7 +1684,7 @@ class GameScene extends Scene
     , parseInt(1000/@fps))
     # show frame rate
     @frame_timeline = setInterval(() =>
-      @frame_rate_label.setText(@frame_rate + " fps")
+      @frame_rate_label.text(@frame_rate + " fps")
       @frame_rate = 0
     , 1000)
 
@@ -1510,11 +1797,11 @@ class GameScene extends Scene
   new_symbol: (parent, type, tx, ty) ->
     animations = switch type
       when 'enemy'
-        [{x: 320, y: 340, width: 20, height: 20}]
+        [320, 340, 20, 20]
       when 'user'
-        [{x: 340, y: 340, width: 20, height: 20}]
+        [340, 340, 20, 20]
       when 'stage'
-        [{x: 280, y: 340, width: 40, height: 40}]
+        [280, 340, 40, 40]
     symbol = new Kinetic.Sprite({
       x: tx,
       y: ty,
@@ -1524,7 +1811,7 @@ class GameScene extends Scene
         'static': animations
       },
       frameRate: 1,
-      index: 0
+      frameIndex: 0
     })
     parent.add(symbol)
     symbol.start()
@@ -2047,17 +2334,24 @@ class MapUnit2D
 
   destroy_display: () ->
     if @bom_on_destroy
-      @display_object.setOffset(20, 20)
-      @display_object.setAnimations(Animations.movables)
-      @display_object.setAnimation('bom')
-      @display_object.setFrameRate(Animations.rate('bom'))
+      @display_object.offset(20, 20)
+      @display_object.animations(Animations.movables_new)
+      @display_object.animation('bom')
+      @display_object.frameRate(Animations.rate('bom'))
+      @display_object.listening = true
       @display_object.start()
-      @display_object.afterFrame 3, () =>
-        @display_object.stop()
-        @display_object.destroy()
+      t = Animations.movable_new('bom').length/4 - 1
+      @display_object.on 'frameIndexChange', (evt) ->
+        if evt.newVal == t
+          @.stop()
+          @.destroy()
     else
       @display_object.stop()
       @display_object.destroy()
+
+  test_interval: (elem) ->
+    console.log(2222)
+    console.log(elem.frameIndex())
 
   width: () -> @area.x2 - @area.x1
   height: () -> @area.y2 - @area.y1
@@ -2096,21 +2390,23 @@ class MovableMapUnit2D extends MapUnit2D
       y: center.y,
       image: @map.image,
       animation: @animation_state(),
-      animations: Animations.movables,
+      animations: Animations.movables_new,
       frameRate: Animations.rate(@animation_state()),
-      index: 0,
+      frameIndex: 0,
       offset: {x: @area.width()/2, y: @area.height()/2},
-      rotationDeg: @direction,
+      rotation: @direction,
       map_unit: this
     })
 
   update_display: () ->
     return if @destroyed
-    @display_object.setAnimation(@animation_state())
-    @display_object.setFrameRate(Animations.rate(@animation_state()))
-    @display_object.setRotationDeg(@direction)
+    @display_object.animation(@animation_state())
+    @display_object.frameRate(Animations.rate(@animation_state()))
+    @display_object.rotation(@direction)
     center = @area.center()
-    @display_object.setAbsolutePosition(center.x, center.y)
+    @display_object.setAbsolutePosition({x: center.x, y: center.y})
+#    @display_object.draw()
+    game.current_scene.layer.draw()
 
   queued_delayed_commands: () ->
     [commands, @delayed_commands] = [@delayed_commands, []]
@@ -2205,21 +2501,25 @@ class MovableMapUnit2D extends MapUnit2D
 class Terrain extends MapUnit2D
   accept: (map_unit) -> false
   new_display: () ->
-    animations = _.cloneDeep(Animations.terrain(@type()))
-    for animation in animations
-      animation.x += (@area.x1 % 40)
-      animation.y += (@area.y1 % 40)
-      animation.width = @area.width()
-      animation.height = @area.height()
+    animations = Animations.terrain_new(@type())
     @display_object = new Kinetic.Sprite({
       x: @area.x1,
       y: @area.y1,
       image: @map.image,
-      index: 0,
+      frameRate: 0,
+      frameIndex: 0,
       animation: 'static',
-      animations: {static: animations},
+      animations: {
+        static: [
+          animations[0],
+          animations[1],
+          @area.width(),
+          @area.height()
+        ]
+      },
       map_unit: this
     })
+    animations = null
 
 class BrickTerrain extends Terrain
   type: -> "brick"
@@ -2293,10 +2593,11 @@ class HomeTerrain extends Terrain
       x: @area.x1,
       y: @area.y1,
       image: @map.image,
-      index: 0,
+      frameRate: 0,
+      frameIndex: 0,
       animations: {
-        origin: Animations.terrain('home_origin'),
-        destroyed: Animations.terrain('home_destroyed')
+        origin: Animations.terrain_new('home_origin'),
+        destroyed: Animations.terrain_new('home_destroyed')
       },
       animation: 'origin',
       map_unit: this
@@ -2304,7 +2605,7 @@ class HomeTerrain extends Terrain
   defend: (missile, destroy_area) ->
     return @max_defend_point if @destroyed
     @destroyed = true
-    @display_object.setAnimation('destroyed')
+    @display_object.animation('destroyed')
     @map.trigger('home_destroyed')
     @max_defend_point
 
@@ -2415,9 +2716,14 @@ class Tank extends MovableMapUnit2D
 
   after_new_display: () ->
     super()
-    @display_object.afterFrame 4, () =>
-      @initializing = false
-      @update_display()
+#    @display_object.afterFrame 4, () =>
+    self = @
+    animation_count = Animations.movable_new(@display_object.animation()).
+    length/4 - 1
+    @display_object.on 'frameIndexChange', (evt) ->
+      if evt.newVal == animation_count
+        self.initializing = false
+        self.update_display()
 
   destroy: () ->
     super()
@@ -2640,9 +2946,9 @@ class Gift extends MapUnit2D
       y: @area.y1,
       image: @map.image,
       animation: @animation_state(),
-      animations: Animations.gifts,
+      animations: Animations.gifts_new,
       frameRate: Animations.rate(@animation_state()),
-      index: 0,
+      frameIndex: 0,
       map_unit: this
     })
 
